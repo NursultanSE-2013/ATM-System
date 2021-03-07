@@ -1,0 +1,16 @@
+package com.company.controllers;
+
+import com.company.repositories.interfaces.IWithdrawalRepository;
+
+public class WithdrawalController {
+    private final IWithdrawalRepository iWithdrawalRepository;
+
+    public WithdrawalController(IWithdrawalRepository iWithdrawalRepository) {
+        this.iWithdrawalRepository = iWithdrawalRepository;
+    }
+
+    public String showWithdrawals(){
+        String result = iWithdrawalRepository.showWithdrawals().toString();
+        return result;
+    }
+}
