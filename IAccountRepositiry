@@ -1,0 +1,8 @@
+package com.company.repositories.interfaces;
+
+import com.company.entities.Account;
+
+public interface IAccountRepositiry {
+    boolean addAccount(Account account);
+
+}
