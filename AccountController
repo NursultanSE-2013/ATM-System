@@ -1,0 +1,20 @@
+package com.company.controllers;
+
+import com.company.entities.Account;
+import com.company.repositories.interfaces.IAccountRepositiry;
+
+public class AccountController {
+    private final IAccountRepositiry accountRepositiry;
+
+    public AccountController(IAccountRepositiry accountRepositiry) {
+        this.accountRepositiry = accountRepositiry;
+    }
+
+    public String addAccount(String name, int customerID, double balance){
+        boolean add = accountRepositiry.addAccount(new Account(name, customerID, balance));
+
+        if (add) return "Account was added!";
+        return "Account was not added!";
+
+    }
+}
