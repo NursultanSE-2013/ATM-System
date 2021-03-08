@@ -1,0 +1,25 @@
+package com.company.controllers;
+
+import com.company.entities.Customer;
+import com.company.repositories.interfaces.ICustomerRepository;
+
+public class CustomerController {
+    private final ICustomerRepository customerRepository;
+
+    public CustomerController(ICustomerRepository customerRepository) {
+        this.customerRepository = customerRepository;
+    }
+
+    public String addCustomer(String name, String lastName, String phone){
+        boolean add = customerRepository.addCustomer(new Customer(name, lastName, phone));
+
+        if(add) return "Customer was added!";
+        return "Customer was not added!";
+
+    }
+
+    public String showCustomers(){
+        String result = customerRepository.showCustomers().toString();
+        return result;
+    }
+}
